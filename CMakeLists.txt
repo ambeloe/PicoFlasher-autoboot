@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.12)
 
 # Include build functions from Pico SDK
-include($ENV{PICO_SDK_PATH}/external/pico_sdk_import.cmake)
+include(external/pico-sdk/pico_sdk_init.cmake)
 
 # Set name of project (as PROJECT_NAME) and C/C   standards
 project(PicoFlasher C CXX ASM)
@@ -15,7 +15,7 @@ pico_sdk_init()
 # Tell CMake where to find the executable source file
 add_executable(${PROJECT_NAME} 
     main.c
-	usb_descriptors.c
+#	usb_descriptors.c
 	spiex.c
 	xbox.c
 	pio_spi.c
@@ -31,7 +31,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         ${CMAKE_CURRENT_LIST_DIR})
 
 pico_generate_pio_header(${PROJECT_NAME} ${CMAKE_CURRENT_LIST_DIR}/spi.pio)
-    
+
 pico_generate_pio_header(${PROJECT_NAME} ${CMAKE_CURRENT_LIST_DIR}/sdio.pio)
 
 # Link to pico_stdlib (gpio, time, etc. functions)
@@ -44,5 +44,5 @@ target_link_libraries(${PROJECT_NAME}
 )
 
 # Enable usb output, disable uart output
-pico_enable_stdio_usb(${PROJECT_NAME} 0)
-pico_enable_stdio_uart(${PROJECT_NAME} 1)
+pico_enable_stdio_usb(${PROJECT_NAME} 1)
+pico_enable_stdio_uart(${PROJECT_NAME} 0)

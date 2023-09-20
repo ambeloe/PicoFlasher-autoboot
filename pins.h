@@ -35,4 +35,11 @@
 #define MMC_CMD_PIN 7
 #define MMC_DAT0_PIN 6
 
+#define VBUS_DETECT 24
+
+#define PWR_SW 28
+#define RF_CLK 27
+#define RF_DAT 26
+#define PWR_STATUS 22
+
 #endif
