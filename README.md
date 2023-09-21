@@ -1,5 +1,7 @@
 ![PicoFlasher logo](https://raw.githubusercontent.com/X360Tools/PicoFlasher/master/picoflasher.png)
 
+# autoboot functionality autmatically resets the xbox on failed/slow boot to make rgh3 reliable on phats
+
 # PicoFlasher
 
 Open source XBOX 360 NAND flasher firmware for Raspberry Pi Pico
